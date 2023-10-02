@@ -19,7 +19,7 @@ Before you begin, ensure you have met the following requirements:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/task-manager-api.git
+   git clone https://github.com/jnakhil/TaskManagerAPI.git
 2. Install the requirements listed in package.json
     ```bash
     npm i
@@ -31,28 +31,30 @@ This will start a local server by default on PORT 3000. In case if you wish to c
 
 
 ## API Endpoints
-1. Create a Task
-    Endpoint: POST /tasks
-    Request Body:
-        {
-            "title": "Task Title",
-            "description": "Task Description",
-        }
-    Response: Returns the created task.
+1. Create a Task<br />
+Endpoint: POST /tasks<br />
+Request Body:<br />
+   ```json
+   {
+      "title": "Task Title",
+      "description": "Task Description",
+   }
+Response: Returns the created task.
 
-2. Update a Task by Id
-    Endpoint: PUT /tasks/:task_id
-    Request Body:
-        {
-            "title": "Task Title",
-            "description": "Task Description",
-            "status": "open"/"inprogress"/"completed"
-        }
-    Response: Returns the updated task.
+2. Update a Task by Id<br />Endpoint: PUT /tasks/:task_id<br />Request Body:
+   ```json
+   {
+      "title": "Task Title",
+      "description": "Task Description",
+      "status": "inprogress"
+   }
+status can only be one among: ["open", "inprogress", "completed"]. Any other input values for status during update call will result in validation error.<br />
+Response: Returns the updated task.
 
-3. List all task
-    Endpoint: GET /tasks
-    Query Parameters:
-        page (optional) - Page number for pagination (default: 1)
-        limit (optional) - Number of tasks per page (default: 10)
-    Response: Returns a list of tasks with pagination details.
+3. List all task<br />Endpoint: GET /tasks<br />
+Query Parameters:<br />
+   ```bash
+   page (optional) - Page number for pagination (default: 1)
+   limit (optional) - Number of tasks per page (default: 10)
+
+Response: Returns a list of tasks with pagination details.
